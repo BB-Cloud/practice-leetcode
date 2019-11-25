@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>flexBox</title>
+    </head>
+    
+    <body>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7"></div>
+            <div class="col-3"></div>
+        </div>
+    </body>
+</html>
+
+<style type="text/css">
+
+.row {
+  display: flex;
+}
+
+.row div {
+    height: 50px;
+}
+
+.col-2 {
+  flex: 2;
+  background: red;
+}
+
+.col-7 {
+  flex: 7;
+  background: yellow;
+}
+
+.col-3 {
+  flex: 3;
+  background: green;
+}
+    
+</style>
