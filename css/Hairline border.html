@@ -1,0 +1,46 @@
+
+<!-- Gives an element a border equal to 1 native device pixel in width, which can look very sharp and crisp. -->
+
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>第一个网页</title>
+    </head>
+    
+    <body>
+        <div class="hairline-border">text</div>
+    </body>
+</html>
+
+<style type="text/css">
+
+.hairline-border {
+  box-shadow: 0 0 0 1px;
+}
+
+@media (min-resolution: 2dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.5px;
+  }
+}
+
+@media (min-resolution: 3dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.33333333px;
+  }
+}
+
+@media (min-resolution: 4dppx) {
+  .hairline-border {
+    box-shadow: 0 0 0 0.25px;
+  }
+}
+    
+</style>
+
+<!-- Explanation -->
+<!-- 
+    box-shadow, when only using spread, adds a pseudo-border which can use subpixels*.
+    Use @media (min-resolution: ...) to check the device pixel ratio (1dppx equals 96 DPI), setting the spread of the box-shadow equal to 1 / dppx. 
+-->
