@@ -1,3 +1,10 @@
-## 什么东西在js里是不等于它自身的
+## What is the only value not equal to itself in JavaScript?
 
-#### NaN
+#### Answer
+
+NaN (Not-a-Number) is the only value not equal to itself when comparing with any of the comparison operators. NaN is often the result of meaningless math computations, so two NaN values make no sense to be considered equal.
+
+#### Good to hear
+
+The difference between isNaN() and Number.isNaN()
+const isNaN = x => x !== x
