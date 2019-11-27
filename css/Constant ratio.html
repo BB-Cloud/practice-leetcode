@@ -1,0 +1,37 @@
+
+<!-- Given an element of variable width, it will ensure its height remains proportionate in a responsive fashion (i.e., its width to height ratio remains constant). -->
+
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>Constant width to height ratio</title>
+    </head>
+    
+    <body>
+        <div class="constant-width-to-height-ratio"></div>
+    </body>
+</html>
+
+<style type="text/css">
+.constant-width-to-height-ratio {
+    background: #333;
+    width: 50%;
+}
+
+/* 设置了display: block就可以，不一定是::after设置 */
+
+.constant-width-to-height-ratio::before {
+    content: '';
+    /* display: block;  */
+    padding-top: 100%;
+    float: left; /* 不是必要的浮动  */
+}
+.constant-width-to-height-ratio::after {
+    content: '';
+    display: block;
+    clear: both; /* 不是必要的清除  */
+}
+
+    
+</style>
