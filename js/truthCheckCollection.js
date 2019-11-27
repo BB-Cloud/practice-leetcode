@@ -1,0 +1,9 @@
+// Checks if the predicate (second argument) is truthy on all elements of a collection (first argument).
+
+// Use Array.prototype.every() to check if each passed object has the specified property and if it returns a truthy value.
+
+const truthCheckCollection = (collection, pre) => collection.every(obj => obj[pre]);
+
+let a = truthCheckCollection([{ user: 'Tinky-Winky', sex: 'female' }, { user: 'Dipsy', sex: 'male' }], 'sex'); // true
+
+console.log(a);
