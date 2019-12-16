@@ -1,0 +1,51 @@
+
+<!-- Creates a bouncing loader animation. -->
+
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>debounce & throttle</title>
+    </head>
+    
+    <body>
+        <div id="debounce" class="box">
+            <div class="inner-box">debounce1</div>
+            <div class="inner-box">debounce2</div>
+            <div class="inner-box">debounce3</div>
+            <div class="inner-box">debounce4</div>
+            <div class="inner-box">debounce5</div>
+            <div class="inner-box">debounce6</div>
+            <div class="inner-box">debounce7</div>
+            <div class="inner-box">debounce8</div>
+            <div class="inner-box">debounce9</div>
+        </div>
+        <div class="box throttle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </body>
+</html>
+
+<script src="index.js"></script>
+
+<style type="text/css">
+.box {
+    margin: 20px;
+    width: 500px;
+    height: 200px;
+    border: 2px solid #aa33cc;
+    overflow: scroll;
+}
+
+.inner-box {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    background: #445500;
+}
+    
+</style>
