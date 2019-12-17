@@ -44,9 +44,9 @@ let throttle = function(func, delay) {
     }
 }
 function handle1() {
-    console.log(Math.random());
+    console.log('throttle', Math.random());
 }
-// window.addEventListener('scroll', throttle(handle, 1000));
+document.querySelector('#throttle').addEventListener('scroll', throttle(handle1, 1000));
 
 
 
