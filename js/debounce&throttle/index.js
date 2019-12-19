@@ -46,7 +46,49 @@ let throttle = function(func, delay) {
 function handle1() {
     console.log('throttle', Math.random());
 }
-document.querySelector('#throttle').addEventListener('scroll', throttle(handle1, 1000));
+document.querySelector('#throttle').addEventListener('scroll', throttle(handle1, 3000));
+
+// 节流函数 定时器写法
+let throttle1 = function(func, delay) {
+    let timer = null;
+    return function() {
+        let context = this;
+        let args = arguments;
+        if (!timer) {
+            timer = setTimeout(function() {
+                func.apply(context, args);
+                timer = null;
+            }, delay);
+        }
+    }
+}
+function handle2() {
+    console.log('throttle1', Math.random());
+}
+document.querySelector('#throttle1').addEventListener('scroll', throttle(handle2, 2000));
+
+// 节流函数 时间戳+定时器  写法
+let throttle2 = function(func, delay) {
+    let timer = null;
+    let startTime = Date.now();
+    return function() {
+        let curTime = Date.now();
+        let remaining = delay - (curTime - startTime);
+        let context = this;
+        let args = arguments;
+        clearTimeout(timer);
+            if (remaining <= 0) {
+                func.apply(context, args);
+                startTime = Date.now();
+            } else {
+                timer = setTimeout(func, remaining);
+            }
+     }
+}
+function handle3() {
+     console.log(Math.random());
+}
+document.querySelector('#throttle2').addEventListener('scroll', throttle(handle3, 1000));
 
 
 
