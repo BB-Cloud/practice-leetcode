@@ -1,0 +1,38 @@
+
+
+
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>Counter</title>
+    </head>
+    
+    <body>
+        <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>
+                List item
+                <ul>
+                    <li>List item</li>
+                    <li>List item</li>
+                    <li>List item</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
+
+<style type="text/css">
+ul {
+  counter-reset: counterName;
+}
+
+li::before {
+  counter-increment: counterName;
+  content: counters(counterName, '.') ' ';
+}
+
+    
+</style>
