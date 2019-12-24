@@ -128,3 +128,44 @@ function bezier() {
 }
 
 bezier();
+
+
+// 填充颜色
+function colors() {
+    let canvas = document.getElementById('colors');
+    if (!canvas.getContext) return; 
+    let ctx = canvas.getContext('2d');
+
+    for (let i = 0; i < 6; i++){
+        for (let j = 0; j < 6; j++){
+            ctx.fillStyle = `rgb(${Math.floor(255 - 42.5 * i)}, 
+                            ${Math.floor(255 - 42.5 * j)}, 0)`;
+            ctx.fillRect(j * 50, i * 50, 50, 50);
+        }
+    }
+}
+
+colors();
+
+
+// 边框颜色
+/**
+ 返回随机的 [from, to] 之间的整数(包括from，也包括to)
+ */
+function randomInt(from, to){
+    return parseInt(Math.random() * (to - from + 1) + from);
+}
+function borders() {
+    let canvas = document.getElementById('borders');
+    if (!canvas.getContext) return; 
+    let ctx = canvas.getContext('2d');
+
+    for (var i = 0.1; i < 6; i++){
+        for (var j = 0.1; j < 6; j++){
+            ctx.strokeStyle = `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+            ctx.strokeRect(j * 50, i * 50, 40, 40);
+        }
+    }
+}
+
+borders();
