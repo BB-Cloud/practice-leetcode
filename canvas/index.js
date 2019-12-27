@@ -169,3 +169,65 @@ function borders() {
 }
 
 borders();
+
+
+// 线条
+function lines() {
+    let canvas = document.getElementById('lines');
+    if (!canvas.getContext) return; 
+    let ctx = canvas.getContext('2d');
+
+    // 线宽
+    ctx.beginPath();
+    ctx.moveTo(10, 20);
+    ctx.lineTo(100, 20);
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(110, 20);
+    ctx.lineTo(160, 20)
+    ctx.lineWidth = 20;
+    ctx.stroke();
+
+    // 线条始末端形状
+    let lineCaps = ["butt", "round", "square"];
+ 
+    for (var i = 0; i < 3; i++){
+        ctx.beginPath();
+        ctx.moveTo(40 + 40 * i, 50);
+        ctx.lineTo(40 + 40 * i, 100);
+        ctx.lineWidth = 20;
+        ctx.lineCap = lineCaps[i];
+        ctx.stroke();
+    }
+    
+    ctx.beginPath();
+    ctx.moveTo(0, 50);
+    ctx.lineTo(300, 50);
+    
+    ctx.moveTo(0, 100);
+    ctx.lineTo(300, 100)
+    
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // 线条连接处形状
+    let lineJoin = ['round', 'bevel', 'miter'];
+    ctx.lineWidth = 20;
+ 
+    for (let i = 0; i < lineJoin.length; i++){
+        ctx.lineJoin = lineJoin[i];
+        ctx.beginPath();
+        ctx.moveTo(50, 130 + i * 50);
+        ctx.lineTo(100, 150 + i * 50);
+        ctx.lineTo(150, 120 + i * 50);
+        ctx.lineTo(200, 140 + i * 50);
+        ctx.lineTo(250, 110 + i * 50);
+        ctx.strokeStyle = "yellow";
+        ctx.stroke();
+    }
+}
+
+lines();
