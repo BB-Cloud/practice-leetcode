@@ -225,9 +225,26 @@ function lines() {
         ctx.lineTo(150, 120 + i * 50);
         ctx.lineTo(200, 140 + i * 50);
         ctx.lineTo(250, 110 + i * 50);
-        ctx.strokeStyle = "yellow";
+        ctx.strokeStyle = "green";
+        ctx.lineWidth = 25;
         ctx.stroke();
     }
+
 }
 
 lines();
+
+
+// 线条
+function dashLine() {
+    let canvas = document.getElementById('dashline');
+    if (!canvas.getContext) return; 
+    let ctx = canvas.getContext('2d');
+
+    // 虚线
+    ctx.setLineDash([20, 5]);  // [实线长度, 间隙长度]
+    ctx.lineDashOffset = -0;
+    ctx.strokeRect(50, 50, 210, 210);
+}
+
+dashLine();
