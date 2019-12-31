@@ -248,3 +248,20 @@ function dashLine() {
 }
 
 dashLine();
+
+
+// 裁剪
+function clipshape() {
+    let canvas = document.getElementById('clipshape');
+    if (!canvas.getContext) return; 
+    let ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.arc(20, 20, 100, 0, Math.PI * 2);
+    ctx.clip(); // 裁剪后变成扇形
+ 
+    ctx.fillStyle = "pink";
+    ctx.fillRect(20, 20, 100,100);
+}
+
+clipshape();
