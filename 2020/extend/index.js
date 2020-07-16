@@ -1,15 +1,28 @@
-function SuperType(name) { 
+function SuperType(name){
     this.name = name;
+    this.colors = ["red", "blue", "green"];
 }
-function SubType() {
-    SuperType.call(this, "Nicholas");
-    this.age = 29; 
+SuperType.prototype.sayName = function(){ 
+    console.log(this.name);
 }
 
-SuperType.prototype.say = function() {
-    console.log(1, this.name);
+function SubType(name, age){
+    SuperType.call(this, name);
+    this.age = age; 
 }
-var instance = new SubType();
+SubType.prototype = new SuperType(); 
+SubType.prototype.constructor = SubType; 
+SubType.prototype.sayAge = function(){
+    console.log(this.age); 
 
-console.log(instance.name);
-console.log(instance.say());
+};
+var instance1 = new SubType("Nicholas", 29); 
+instance1.colors.push("black");
+console.log(instance1.colors); 
+instance1.sayName();
+instance1.sayAge();
+
+var instance2 = new SubType("Greg", 27);
+console.log(instance2.colors); 
+instance2.sayName(); 
+instance2.sayAge();
