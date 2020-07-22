@@ -1,0 +1,23 @@
+<input id="inputArea" type="" name=""/>
+<p id="showCount"></p>
+
+<script>
+    var obj = {};
+    Object.defineProperty(obj, 'attr', {
+        get: function() {
+            return obj;
+        },
+        set: function(newValue) {
+            document.getElementById('inputArea').value = newValue;
+            document.getElementById('showCount').innerHTML = newValue;
+        },
+    });
+
+    document.getElementById('inputArea').onkeyup = function(e) {
+        obj.attr = e.target.value;
+    };
+
+    setTimeout(() => {
+        obj.attr = '100000'
+    }, 5000);
+</script>
