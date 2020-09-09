@@ -11,7 +11,7 @@ Function.prototype.myCall = function (content = window, ...args) {
 function test(age) {
     console.log(`name:${this.name},age:${age}`)
 }
-test.call({
+test.myCall({
     name: 'coco'
 }, 18)
 

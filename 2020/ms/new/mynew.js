@@ -1,4 +1,5 @@
 function MyNew(fn, ...args) {
+    console.log(...args);
     if (!(fn instanceof Function)) {
         throw new TypeError('not a constructor')
     }
